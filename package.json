@@ -12,6 +12,7 @@
   "author": "MIT",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "git": "^0.1.5",
     "moment": "^2.30.1"
   },
