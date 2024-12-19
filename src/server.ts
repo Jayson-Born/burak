@@ -1,5 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log("Port:", process.env.PORT)
-console.log("Mongo_URL", process.env.Mongo_URL)
+import mongoose from 'mongoose';
+ mongoose.set('strictQuery',true)
+mongoose
+.connect(process.env.Mongo_URL as string, {})
+.then ((data)=> {
+    console.log("MongoDB connected successfully")
+    const PORT=process.env.PORT ?? 3003;
+}) 
+.catch((err)=>{ console.log("there is a problem with connection MongoDB")});
+
