@@ -9,3 +9,4 @@ routerAdmin.get("/login", (restaurantController.getLogin));
 routerAdmin.get("/signUp", (restaurantController.getSignUp));
 
 export default routerAdmin;
+
