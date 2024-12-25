@@ -2,8 +2,8 @@ import{Request, Response } from "express";
 import {T} from '../libs/types/common';
 import MemberService from '../models/member.service';
 
-const memberController: T ={};
-memberController.goHome = (req: Request, res: Response)=>{ 
+const restaurantController: T ={};
+restaurantController.goHome = (req: Request, res: Response)=>{ 
 try{
     console.log("go home")
     res.send("Home Page");
@@ -12,7 +12,7 @@ try{
 }
 };
 
-memberController.getLogin= (req: Request, res: Response)=>{ 
+restaurantController.getLogin= (req: Request, res: Response)=>{ 
 
 try{
     console.log('got LogIn');
@@ -21,7 +21,17 @@ try{
     console.log("Error, LOgging:", err);
 };
 }
-memberController.getSignUp = (req: Request, res: Response)=>{ 
+
+restaurantController.processLogin= (req: Request, res: Response)=>{ 
+
+try{
+    console.log('got login ');
+    res.send("done")
+} catch (err){
+    console.log("Error, processLogin:", err);
+};
+}
+restaurantController.getSignUp = (req: Request, res: Response)=>{ 
 
 try{
     console.log('go signUp');
@@ -31,5 +41,15 @@ try{
 };
 }
 
-export default memberController
+restaurantController.processSignup = (req: Request, res: Response)=>{ 
+
+try{
+    console.log('go signUp');
+    res.send("Done");
+} catch (err){
+    console.log("Error, processSignup", err);
+};
+}
+
+export default restaurantController
 
