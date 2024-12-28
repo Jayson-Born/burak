@@ -12,7 +12,7 @@ const restaurantController: T ={};
 restaurantController.goHome = (req: Request, res: Response)=>{ 
 try{
     console.log("go home")
-    res.send("Home Page");
+    res.render("Home");
 } catch (err){
     console.log("Error, goHome:", err);
 }
@@ -22,8 +22,8 @@ try{
 restaurantController.getSignUp = (req: Request, res: Response)=>{ 
 
     try{
-        console.log('go signUp');
-        res.send("SignUp Page");
+        console.log('get signUp');
+        res.render("signup");
     } catch (err){
         console.log("Error, getSignUp:", err);
     };
@@ -38,6 +38,7 @@ restaurantController.getSignUp = (req: Request, res: Response)=>{
         const newMember: MemberInput = req.body;
         newMember.memberType=MemberType.RESTAURANT;
         const result=await memberService.processSignup(newMember);
+        //TODO SESSION AUTHINTICATION
     
         res.send(result);
     
@@ -52,7 +53,7 @@ restaurantController.getLogin= (req: Request, res: Response)=>{
 
 try{
     console.log('got LogIn');
-    res.send("Login Page");
+    res.render("login");
 } catch (err){
     console.log("Error, LOgging:", err);
 };
@@ -65,6 +66,7 @@ try{
 
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
+    // TODO SESSION AUTHINTICATION
 
     res.send(result);
 } catch (err){
