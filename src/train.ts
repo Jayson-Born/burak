@@ -15,3 +15,9 @@
     GraphQL API
     ...
     */
+
+
+    /* cookie:
+    join request
+    self destroy
+     */
