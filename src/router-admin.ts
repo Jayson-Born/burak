@@ -14,6 +14,8 @@ routerAdmin
 .get("/signUp", (restaurantController.getSignUp))
 .post("/signUp",restaurantController.processSignup );
 
+routerAdmin.get("/checkme", (restaurantController.checkMe))
+
 /** Product */
 
 /** User */

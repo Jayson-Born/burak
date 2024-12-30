@@ -4,6 +4,7 @@ import MemberService from '../models/member.service';
 import {MemberInput} from "../libs/types/member";
 import {MemberType} from "../libs/enums/member.enums";
 import {AdminRequest, LoginInput}from "../libs/types/member";
+import { Message } from "../libs/Errors";
 
 
 
@@ -91,5 +92,19 @@ try{
 }
 
 
-export default restaurantController
+restaurantController.checkMe= async(req: AdminRequest, res: Response)=>{ 
 
+    try{
+        console.log('checkMe session');
+        if(req.session?.member) 
+            res.send (`<script>alert("Hi, ${req.session.member.memberNick})</script`);
+    else res.send(`<script> alert("${Message.NOT_AUTENTICATED}") </script>`)
+       
+        
+    } catch (err){
+        console.log("Error, checkMe:", err);
+        res.send(err);
+    };
+};
+
+export default restaurantController;
