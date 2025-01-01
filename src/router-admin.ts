@@ -6,22 +6,28 @@ import productController from "../src/controller/product.controoller";
 
 /**Restaurant */
 
-routerAdmin.get("/", (restaurantController.goHome));
+routerAdmin.get("/", restaurantController.goHome);
 routerAdmin
- .get("/login", (restaurantController.getLogin))
- .post("/login", (restaurantController.processLogin));
+ .get("/login", restaurantController.getLogin)
+ .post("/login", restaurantController.processLogin);
 
 routerAdmin
-.get("/signUp", (restaurantController.getSignUp))
+.get("/signUp", restaurantController.getSignUp)
 .post("/signUp",restaurantController.processSignup );
 
-routerAdmin.get("/logout", (restaurantController.logout))
-routerAdmin.get("/checkme", (restaurantController.checkMe))
+routerAdmin.get("/logout", restaurantController.logout)
+routerAdmin.get("/checkme", restaurantController.checkMe)
 
 /** Product */
-routerAdmin.get("/product/all", (productController.getAllProducts))
-routerAdmin.post("/product/createNewProduct", (productController.createNewProduct))
-routerAdmin.post("/product/:id", (productController.updateChosenProduct))
+routerAdmin.get("/product/all", 
+    restaurantController.verfyRestaurant,
+    productController.getAllProducts)
+routerAdmin.post("/product/createNewProduct", 
+    restaurantController.verfyRestaurant,
+     productController.createNewProduct)
+routerAdmin.post("/product/:id", 
+    restaurantController.verfyRestaurant,
+     productController.updateChosenProduct)
 /** User */
 export default routerAdmin;
 
