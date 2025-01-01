@@ -10,7 +10,8 @@
     */
 
 
-    /* Traditional API 
+    /* Frontend Development:
+    Traditional API 
     Rest API
     GraphQL API
     ...
@@ -21,3 +22,8 @@
     join request
     self destroy
      */
+
+    /* Validation:
+    Frontend:validation
+    backend: validation
+    */
