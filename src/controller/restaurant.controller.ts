@@ -4,7 +4,7 @@ import MemberService from '../models/member.service';
 import {MemberInput} from "../libs/types/member";
 import {MemberType} from "../libs/enums/member.enums";
 import {AdminRequest, LoginInput}from "../libs/types/member";
-import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
 
 
@@ -49,7 +49,9 @@ restaurantController.getLogin= (req: Request, res: Response)=>{
     
     try{
         console.log('processSignup');
-        console.log("body",req.body);
+        const file = req.file;
+        if(!file) 
+            throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
     
         const newMember: MemberInput = req.body;
         newMember.memberType=MemberType.RESTAURANT;
@@ -58,7 +60,7 @@ restaurantController.getLogin= (req: Request, res: Response)=>{
         
         req.session.member = result;
         req.session.save(function (){
-            res.send(result);
+            res.redirect("/admin/product/all");
 
         });
     
@@ -90,7 +92,7 @@ try{
     
     req.session.member = result;
     req.session.save(function (){
-        res.send(result);
+        res.redirect("/admin/product/all");
 
     });
 
