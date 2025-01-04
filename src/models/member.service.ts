@@ -3,8 +3,15 @@ import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enums";
 import * as bcrypt from "bcryptjs";
+import { ProductInput } from "../libs/types/product";
 
 class MemberService {
+    static createNewProduct(data: ProductInput) {
+        throw new Error('Method not implemented.');
+    }
+    createNewProduct(data: ProductInput) {
+        throw new Error('Method not implemented.');
+    }
     private readonly memberModel;
 
     constructor() {

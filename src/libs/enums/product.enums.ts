@@ -6,7 +6,7 @@ export enum ProductSize {
 }
 
 export enum ProductVolume {
-    HALF = "HALF",
+    HALF = "0.5",
     ONE = 1,
     ONE_POINT_2 = 1.2,
     ONE_POINT_FIVE = 1.5,

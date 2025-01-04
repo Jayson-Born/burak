@@ -1,5 +1,6 @@
-import ProductModel from "../schema/product.model";
-
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { Product, ProductInput } from "../libs/types/product";
+import ProductModel from "../schema/product.model"
 
 class ProductService {
     private readonly productModel;
@@ -7,6 +8,21 @@ class ProductService {
     constructor() {
         this.productModel = ProductModel;
     }
+
+    /* SPA */
+
+    /* SSR */
+
+    public async createNewProduct(input: ProductInput): Promise<Product> {
+        try {
+            const createdProduct = await this.productModel.create(input);
+            return createdProduct.toObject() as Product;
+        } catch (err) {
+            console.error("ERROR, model:createNewProduct", err);
+            throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+        }
+    }
+
 }
 
 export default ProductService;

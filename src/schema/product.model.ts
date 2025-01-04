@@ -1,70 +1,66 @@
-import mongoose, {Schema} from "mongoose";
-import {ProductStatus, ProductCollection, ProductSize, ProductVolume } from "../libs/enums/product.enums"
+import mongoose, { Schema } from "mongoose";
+import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../libs/enums/product.enums";
 
-const productSchema = new Schema (
+const productSchema = new Schema(
     {
-       productStatus: {
-        type : String,
-        enum: ProductStatus,
-        default: ProductStatus.PAUSE,
+        productStatus: {
+            type: String,
+            enum: ProductStatus,
+            default: ProductStatus.PAUSE,
+        },
 
-       },
+        productCollection: {
+            type: String,
+            enum: ProductCollection,
+            required: true,
+        },
 
-       productCollection: {
-        type : String,
-        enum: ProductCollection,
-        default: ProductCollection.DISH,
+        productName: {
+            type: String,
+            required: true,
+        },
 
-       },
+        productPrice: {
+            type: Number,
+            required: true,
+        },
 
-       productName: {
-        type: String,
-        required: true,
-       },
+        productLeftCount: {
+            type: Number,
+            required: true,
+        },
 
-       productPrice: {
-        type: Number,
-        required: true,
-       },
+        productSize: {
+            type: String,
+            enum: ProductSize,
+            default: ProductSize.NORMAL,
+        },
 
-       productLeftCount: {
-        type: Number,
-        required: true,
-       },
+        productVolume: {
+            type: Number,
+            enum: ProductVolume,
+            default: ProductVolume.ONE,
+        },
 
-       productSize: {
-        type: String,
-        enum: ProductSize,
-        default: ProductSize.NORMAL,
-       },
+        productDesc: {
+            type: String,
+        },
 
-       productVolume: {
-        type: String,
-        required: true,
-        default: ProductVolume.ONE,
-       },
-
-         productDesc: {
-          type: String,
-          required: true,
-         },
-
-            productImages: {
+        productImages: {
             type: [String],
             default: [],
-    },
+        },
 
-    productViews : {
-        type: Number,
-        default: 0,
-    },
-    },
-    { timestamps: true} // updateAt, createdAt
-);
-
-productSchema.index(
-    {productName: 1, productSize: 1, productVolume: 1},
-    {unique: true}
-);
-
-export default mongoose.model("Product", productSchema); 
+        productViews: {
+            type: Number,
+            default: 0,
+        },
+    }, 
+    {timestamps: true } // updatedAt, createdAt
+    );
+    
+    productSchema.index(
+        { productName: 1, productSize: 1, productVolume: 1 },
+        { unique: true }
+        );
+    export default mongoose.model("Product", productSchema);
