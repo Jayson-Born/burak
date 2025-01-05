@@ -3,7 +3,7 @@ import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enums";
 import * as bcrypt from "bcryptjs";
-import { ProductInput } from "../libs/types/product";
+import { Product, ProductInput } from "../libs/types/product";
 
 class MemberService {
     static createNewProduct(data: ProductInput) {
@@ -101,6 +101,16 @@ class MemberService {
         }
          const mama = await this.memberModel.findById(member._id).exec()
         return mama as unknown as Member;
+    }
+
+
+    public async getUsers(): Promise<Member[]> {
+        const result = await this.memberModel
+        .find({memberType: MemberType.USER})
+        .exec();
+     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+     return result as unknown as Member[];
     }
 }
 
