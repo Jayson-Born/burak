@@ -1,5 +1,1 @@
-console.log("JAVASCRIPT PATH")
-
-!function() {
-    console.log("JAVASCRIPT FUNCTION")
-}
+console.log("Basic frontend javascript file");
