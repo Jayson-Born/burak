@@ -1,6 +1,6 @@
 import{NextFunction, Request, Response } from "express";
 import {T} from '../libs/types/common';
-import MemberService from '../models/member.service';
+import MemberService from '../models/Member.service';
 import {MemberInput} from "../libs/types/member";
 import {MemberType} from "../libs/enums/member.enums";
 import {AdminRequest, LoginInput}from "../libs/types/member";
@@ -72,8 +72,8 @@ restaurantController.getLogin= (req: Request, res: Response)=>{
         console.log("Error, processLogin:", err);
         const message =
         err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send (`<script>alert("${message}"); 
-            window.location.reeplace("admin/signup")</script`);
+        res.send (`<script> alert("${message}"); 
+            window.location.replace("/admin/signup")</script>`);
     }
 
     };
@@ -103,8 +103,8 @@ try{
     const message =
     err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send (`<script>alert("${message}"); 
-        window.location.reeplace("admin/login")</script`);
-    
+        window.location.replace("/admin/login")</script>`);
+       
 }
 }
 
