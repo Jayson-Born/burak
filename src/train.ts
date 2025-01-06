@@ -28,3 +28,15 @@
     backend: validation
     Database validation
     */
+
+
+    function palindromeCheck(string: string)  {
+    
+
+        const reversedString = string.split(""). reverse().join('')
+        return string === reversedString
+
+        
+
+    }
+    console.log(palindromeCheck("dad"))
