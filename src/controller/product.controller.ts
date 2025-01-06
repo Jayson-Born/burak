@@ -42,7 +42,7 @@ productController.getAllProducts = async(req: Request, res: Response)=>{
 
               await productService.createNewProduct(data);
              res.send (`<script>alert("Successful creation"); 
-                window.location.reeplace("admin/product/all")</script`);
+                window.location.replace("admin/product/all")</script`);
         
         } catch (err){
             console.log("Error, createNewProduct", err);
