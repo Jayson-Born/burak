@@ -29,14 +29,31 @@
     Database validation
     */
 
+    //MIT Task O
 
-    function palindromeCheck(string: string)  {
+    function calculateSum(arr: (string | number | boolean | { number: number; })[]) {
+        let sum = 0;
+        for (let item of arr) {
+            if (typeof item === "number") {
+                sum += item;
+            }
+        }
+        return sum;
+    }
+    
+    // Test
+    console.log(calculateSum([10, "10", { number: 10 }, true, 35])); // Output: 45
+
+
+    // MIT task N
+
+    // function palindromeCheck(string: string)  {
     
 
-        const reversedString = string.split(""). reverse().join('')
-        return string === reversedString
+    //     const reversedString = string.split(""). reverse().join('')
+    //     return string === reversedString
 
         
 
-    }
-    console.log(palindromeCheck("dad"))
+    // }
+    // console.log(palindromeCheck("dad"))
