@@ -63,21 +63,6 @@
                   </td>
                 </tbody>
               <%})%>
-            <tbody style="background: white">
-              <td>1</td>
-              <td>Steak</td>
-              <td>Dish</td>
-              <td>NORMAL</td>
-              <td>11</td>
-              <td>100</td>
-              <td>
-                <select class="spec-select new-product-status">
-                  <option value="PAUSE" selected>PAUSE</option>
-                  <option value="PROCESS">PROCESS</option>
-                  <option value="DELETE">DELETE</option>
-                </select>
-              </td>
-            </tbody>
             <!--  LOOP PRODUCTS: END  -->
           </table>
           <div
@@ -90,6 +75,7 @@
           </div>
         </div>
         <form
+          onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -184,6 +170,7 @@
                   name="productImages"
                   class="image-one"
                   required
+                  onchange=" previewFileHandler(this, 1)" 
                 />
               </div>
               <div class="upload-img-box">
@@ -193,6 +180,7 @@
                   id="file"
                   name="productImages"
                   class="image-two"
+                  onchange=" previewFileHandler(this, 2)" 
                 />
               </div>
               <div class="upload-img-box">
@@ -202,6 +190,7 @@
                   id="file"
                   name="productImages"
                   class="image-three"
+                  onchange=" previewFileHandler(this, 3)" 
                 />
               </div>
               <div class="upload-img-box">
@@ -211,6 +200,7 @@
                   id="file"
                   name="productImages"
                   class="image-four"
+                  onchange=" previewFileHandler(this, 4)" 
                 />
               </div>
               <div class="upload-img-box">
@@ -220,6 +210,7 @@
                   id="file"
                   name="productImages"
                   class="image-five"
+                  onchange=" previewFileHandler(this, 5)" 
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
