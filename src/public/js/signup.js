@@ -26,11 +26,11 @@ $(function () {
     });
 });
 
-$(function (){
-    $(".member-nick").click(function (){
-      $(".member-phone").toggle();
-    });
-   });
+// $(function (){
+//     $(".member-nick").click(function (){
+//       $(".member-phone").toggle();
+//     });
+//    });
     
    function validateSignupForm(){
     const memberNick = $(".member-nick").val();
@@ -52,8 +52,7 @@ $(function (){
         alert("Password differs, please check!");
         return false
     }
-    
-    const memberImage = $(".member-image").get(0).files[0] 
+    const memberImage = $(".member-image").get(0)?.files[0]
     ? $("member-image").get(0).giles[0].name 
     : null;
     if(!memberImage) {
