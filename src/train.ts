@@ -29,20 +29,32 @@
     Database validation
     */
 
-    //MIT Task O
 
-    function calculateSum(arr: (string | number | boolean | { number: number; })[]) {
-        let sum = 0;
-        for (let item of arr) {
-            if (typeof item === "number") {
-                sum += item;
-            }
-        }
-        return sum;
+    //MIT Task P
+    function objectToArray(obj: { [key: string]: any }): [string, any][] {
+        return Object.entries(obj);
     }
     
-    // Test
-    console.log(calculateSum([10, "10", { number: 10 }, true, 35])); // Output: 45
+    const result = objectToArray({a: 10, b: 20});
+    console.log(result); 
+    
+    
+
+
+    //MIT Task O
+
+    // function calculateSum(arr: (string | number | boolean | { number: number; })[]) {
+    //     let sum = 0;
+    //     for (let item of arr) {
+    //         if (typeof item === "number") {
+    //             sum += item;
+    //         }
+    //     }
+    //     return sum;
+    // }
+    
+    // // Test
+    // console.log(calculateSum([10, "10", { number: 10 }, true, 35])); // Output: 45
 
 
     // MIT task N
