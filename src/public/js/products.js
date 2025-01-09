@@ -14,15 +14,15 @@ $(function () {
 
     $("#process-btn").on("click",() => {
         $(".dish-container").slideToggle(500);
-        $(".dish-container").css("display", "none")
+        $(".#process-btn").css("display", "none")
     })
 
   
-    
+
 
     $("#cancel-btn").on("click",() => {
         $(".dish-container").slideToggle(100);
-        $(".dish-container").css("display", "flex")
+        $(".#process-btn").css("display", "flex")
     });
 
     $(".new-product-status").on ("change", async function(e){
