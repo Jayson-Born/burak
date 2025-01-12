@@ -30,13 +30,30 @@
     */
 
 
-    //MIT Task P
-    function objectToArray(obj: { [key: string]: any }): [string, any][] {
-        return Object.entries(obj);
+
+    //MIT Task
+
+    function hasProperty(obj: { name: string; model: string; }, prop: string) {
+        for (let key in obj) {
+            if (key === prop && Object.prototype.hasOwnProperty.call(obj, key)) {
+                return true;
+            }
+        }
+        return false;
     }
     
-    const result = objectToArray({a: 10, b: 20});
-    console.log(result); 
+    // Example usage:
+    console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+    console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+    
+
+    //MIT Task P
+    // function objectToArray(obj: { [key: string]: any }): [string, any][] {
+    //     return Object.entries(obj);
+    // }
+    
+    // const result = objectToArray({a: 10, b: 20});
+    // console.log(result); 
     
     
 
