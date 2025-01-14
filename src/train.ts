@@ -31,20 +31,30 @@
 
 
 
+    //MIT Task R
+
+    function calculate(expression: string): number {
+        const result = eval(expression);
+        return result;
+      }
+      
+      console.log(calculate("1 + 3")); 
+      
+
     //MIT Task
 
-    function hasProperty(obj: { name: string; model: string; }, prop: string) {
-        for (let key in obj) {
-            if (key === prop && Object.prototype.hasOwnProperty.call(obj, key)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // function hasProperty(obj: { name: string; model: string; }, prop: string) {
+    //     for (let key in obj) {
+    //         if (key === prop && Object.prototype.hasOwnProperty.call(obj, key)) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
     
-    // Example usage:
-    console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-    console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+    // // Example usage:
+    // console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+    // console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
     
 
     //MIT Task P
