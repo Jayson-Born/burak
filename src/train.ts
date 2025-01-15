@@ -31,14 +31,26 @@
 
 
 
+    //MIT Task S
+
+    function findMissingNumber(numbers: number[]): number {
+      const totalCount = numbers.length; 
+      const totalSum = (totalCount * (totalCount + 1)) / 2; 
+      const actualSum = numbers.reduce((sum, num) => sum + num, 0); 
+      return totalSum - actualSum; 
+    }
+    
+    console.log(findMissingNumber([3, 0, 1])); 
+    
+
     //MIT Task R
 
-    function calculate(expression: string): number {
-        const result = eval(expression);
-        return result;
-      }
+    // function calculate(expression: string): number {
+    //     const result = eval(expression);
+    //     return result;
+    //   }
       
-      console.log(calculate("1 + 3")); 
+    //   console.log(calculate("1 + 3")); 
       
 
     //MIT Task
