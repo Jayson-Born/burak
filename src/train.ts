@@ -31,16 +31,53 @@
 
 
 
+    //MIT Task T
+
+    function mergeSortedArrays(array1: string | any[], array2: string | any[]) {
+      let i = 0; 
+      let j = 0; 
+      const result = []; 
+  
+      
+      while (i < array1.length && j < array2.length) {
+          if (array1[i] < array2[j]) {
+              result.push(array1[i]); 
+              i++;
+          } else {
+              result.push(array2[j]); 
+              j++;
+          }
+      }
+  
+      while (i < array1.length) {
+          result.push(array1[i]);
+          i++;
+      }
+  
+      
+      while (j < array2.length) {
+          result.push(array2[j]);
+          j++;
+      }
+  
+      return result; 
+  }
+  
+  
+  const natija = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+  console.log(natija); 
+  
+
     //MIT Task S
 
-    function findMissingNumber(numbers: number[]): number {
-      const totalCount = numbers.length; 
-      const totalSum = (totalCount * (totalCount + 1)) / 2; 
-      const actualSum = numbers.reduce((sum, num) => sum + num, 0); 
-      return totalSum - actualSum; 
-    }
+    // function findMissingNumber(numbers: number[]): number {
+    //   const totalCount = numbers.length; 
+    //   const totalSum = (totalCount * (totalCount + 1)) / 2; 
+    //   const actualSum = numbers.reduce((sum, num) => sum + num, 0); 
+    //   return totalSum - actualSum; 
+    // }
     
-    console.log(findMissingNumber([3, 0, 1])); 
+    // console.log(findMissingNumber([3, 0, 1])); 
     
 
     //MIT Task R
