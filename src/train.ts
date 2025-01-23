@@ -28,44 +28,68 @@
     backend: validation
     Database validation
     */
+// MIT Task V
+
+function countChars(word: string) {
+const count: { [key: string]: number } = {};
+for (let char of word) {
+    if (char in count) {
+count[char]++;
+    } else {
+count[char] = 1;
+}
+}
+    return count;
+  }
+  
+  console.log(countChars("hello"));
+
+//MIT Task U
 
 
+// function sumOdds(num: number) {
+//   return Math.floor(num / 2);
+// }
+
+// console.log(sumOdds(9)); 
+// console.log(sumOdds(11)); 
+// console.log(sumOdds(12)); 
 
     //MIT Task T
 
-    function mergeSortedArrays(array1: string | any[], array2: string | any[]) {
-      let i = 0; 
-      let j = 0; 
-      const result = []; 
+//     function mergeSortedArrays(array1: string | any[], array2: string | any[]) {
+//       let i = 0; 
+//       let j = 0; 
+//       const result = []; 
   
       
-      while (i < array1.length && j < array2.length) {
-          if (array1[i] < array2[j]) {
-              result.push(array1[i]); 
-              i++;
-          } else {
-              result.push(array2[j]); 
-              j++;
-          }
-      }
+//       while (i < array1.length && j < array2.length) {
+//           if (array1[i] < array2[j]) {
+//               result.push(array1[i]); 
+//               i++;
+//           } else {
+//               result.push(array2[j]); 
+//               j++;
+//           }
+//       }
   
-      while (i < array1.length) {
-          result.push(array1[i]);
-          i++;
-      }
+//       while (i < array1.length) {
+//           result.push(array1[i]);
+//           i++;
+//       }
   
       
-      while (j < array2.length) {
-          result.push(array2[j]);
-          j++;
-      }
+//       while (j < array2.length) {
+//           result.push(array2[j]);
+//           j++;
+//       }
   
-      return result; 
-  }
+//       return result; 
+//   }
   
   
-  const natija = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
-  console.log(natija); 
+//   const natija = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+//   console.log(natija); 
   
 
     //MIT Task S
