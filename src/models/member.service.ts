@@ -61,11 +61,10 @@ class MemberService {
             );
 
         //const isMatch = member.memberPassword === input.memberPassword;
-        console.log("isMatch:", isMatch);
         if (!isMatch) {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
-         const mama = await this.memberModel.findById(member._id).exec()
+         const mama = await this.memberModel.findById(member._id).lean().exec()
         return mama as unknown as Member;
     }
 
