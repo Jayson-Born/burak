@@ -28,21 +28,35 @@
     backend: validation
     Database validation
     */
+
+//MIT Task W
+
+function chunkArray(array: any[], size: number) {
+    let result = [];
+    for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+    }
+    
+    return result;
+}
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9,  10], 3));
+
+
 // MIT Task V
 
-function countChars(word: string) {
-const count: { [key: string]: number } = {};
-for (let char of word) {
-    if (char in count) {
-count[char]++;
-    } else {
-count[char] = 1;
-}
-}
-    return count;
-  }
+// function countChars(word: string) {
+// const count: { [key: string]: number } = {};
+// for (let char of word) {
+//     if (char in count) {
+// count[char]++;
+//     } else {
+// count[char] = 1;
+// }
+// }
+//     return count;
+//   }
   
-  console.log(countChars("hello"));
+//   console.log(countChars("hello"));
 
 //MIT Task U
 
