@@ -29,17 +29,51 @@
     Database validation
     */
 
+//MIT Task X
+// X-TASK:
+
+//  Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+
+
+function countOccurrences(obj: { model: string; steer: { model: string; size: number; }; }, key: string) {
+    let count = 0;  
+    function countKeys(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; hasOwnProperty?: any; }) {
+        for (let prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                if (prop === key) {
+                    count++;
+                }
+        
+                if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+                    countKeys(obj[prop]);  
+                }
+            }
+        }
+    }
+
+    countKeys(obj);  
+    return count;   
+}
+
+
+const result = countOccurrences({ model: 'Bugatti', steer: { model: 'HANKOOK', size: 30 } }, 'model');
+console.log(result);  
+
+
+
 //MIT Task W
 
-function chunkArray(array: any[], size: number) {
-    let result = [];
-    for (let i = 0; i < array.length; i += size) {
-        result.push(array.slice(i, i + size));
-    }
+// function chunkArray(array: any[], size: number) {
+//     let result = [];
+//     for (let i = 0; i < array.length; i += size) {
+//         result.push(array.slice(i, i + size));
+//     }
     
-    return result;
-}
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9,  10], 3));
+//     return result;
+// }
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9,  10], 3));
 
 
 // MIT Task V
