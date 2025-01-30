@@ -29,37 +29,65 @@
     Database validation
     */
 
+
+    //MIT Task Y
+    function findIntersection(arr1: number[], arr2: number[]): number[] {
+        arr1.sort();
+        arr2.sort();
+        const result: number[] = [];
+        let [i, j] = [0, 0];
+      
+        while (arr1[i] != undefined && arr2[j] != undefined) {
+          if (arr1[i] == arr2[j]) {
+            if (!result.includes(arr1[i])) {
+              result.push(arr1[i]);
+            }
+            i++;
+            j++;
+          } else if (arr1[i] > arr2[j]) {
+            j++;
+          } else {
+            i++;
+          }
+        }
+        return result;
+       
+      }
+      console.log(findIntersection([1,2,3], [3,2,0]));
+
+     
+
 //MIT Task X
-// X-TASK:
+
 
 //  Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
 //  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
 
 
 
-function countOccurrences(obj: { model: string; steer: { model: string; size: number; }; }, key: string) {
-    let count = 0;  
-    function countKeys(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; hasOwnProperty?: any; }) {
-        for (let prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                if (prop === key) {
-                    count++;
-                }
+// function countOccurrences(obj: { model: string; steer: { model: string; size: number; }; }, key: string) {
+//     let count = 0;  
+//     function countKeys(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; hasOwnProperty?: any; }) {
+//         for (let prop in obj) {
+//             if (obj.hasOwnProperty(prop)) {
+//                 if (prop === key) {
+//                     count++;
+//                 }
         
-                if (typeof obj[prop] === 'object' && obj[prop] !== null) {
-                    countKeys(obj[prop]);  
-                }
-            }
-        }
-    }
+//                 if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+//                     countKeys(obj[prop]);  
+//                 }
+//             }
+//         }
+//     }
 
-    countKeys(obj);  
-    return count;   
-}
+//     countKeys(obj);  
+//     return count;   
+// }
 
 
-const result = countOccurrences({ model: 'Bugatti', steer: { model: 'HANKOOK', size: 30 } }, 'model');
-console.log(result);  
+// const result = countOccurrences({ model: 'Bugatti', steer: { model: 'HANKOOK', size: 30 } }, 'model');
+// console.log(result);  
 
 
 

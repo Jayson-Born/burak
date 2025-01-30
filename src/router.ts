@@ -2,6 +2,7 @@ import express,{Request, Response} from 'express';
 const router = express.Router();
 import memberController from "./controller/member.controller";
 import uploader from "./libs/utils/uploader"
+import productController from './controller/product.controller';
 
 /** Member**/
 router.get("/member/restaurant", memberController.getRestaurant)
@@ -21,5 +22,8 @@ router.post("/member/update",
     memberController.updateMember)
 
 router.get("/member/top-users", memberController.getTopUsers)
+
+/**Product */
+router.get("/product/all", productController.getProducts)
 
 export default router;
