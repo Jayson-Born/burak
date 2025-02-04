@@ -29,31 +29,42 @@
     Database validation
     */
 
+//MIT Task Z
+
+function sumEvens(nums: number[]): number {
+  return nums.reduce((total: number, value: number) => {
+    return (value & 1) === 0 ? total + value : total;
+  }, 0);
+}
+
+console.log(sumEvens([1, 2, 3])); 
+console.log(sumEvens([1, 2, 3, 2])); 
+
 
     //MIT Task Y
-    function findIntersection(arr1: number[], arr2: number[]): number[] {
-        arr1.sort();
-        arr2.sort();
-        const result: number[] = [];
-        let [i, j] = [0, 0];
+    // function findIntersection(arr1: number[], arr2: number[]): number[] {
+    //     arr1.sort();
+    //     arr2.sort();
+    //     const result: number[] = [];
+    //     let [i, j] = [0, 0];
       
-        while (arr1[i] != undefined && arr2[j] != undefined) {
-          if (arr1[i] == arr2[j]) {
-            if (!result.includes(arr1[i])) {
-              result.push(arr1[i]);
-            }
-            i++;
-            j++;
-          } else if (arr1[i] > arr2[j]) {
-            j++;
-          } else {
-            i++;
-          }
-        }
-        return result;
+    //     while (arr1[i] != undefined && arr2[j] != undefined) {
+    //       if (arr1[i] == arr2[j]) {
+    //         if (!result.includes(arr1[i])) {
+    //           result.push(arr1[i]);
+    //         }
+    //         i++;
+    //         j++;
+    //       } else if (arr1[i] > arr2[j]) {
+    //         j++;
+    //       } else {
+    //         i++;
+    //       }
+    //     }
+    //     return result;
        
-      }
-      console.log(findIntersection([1,2,3], [3,2,0]));
+    //   }
+    //   console.log(findIntersection([1,2,3], [3,2,0]));
 
      
 

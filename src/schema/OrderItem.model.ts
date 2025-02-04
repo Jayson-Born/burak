@@ -4,7 +4,7 @@ const orderItemSchema = new Schema(
     {
         itemQuantity: {
             type: Number,
-            required: true;
+            required: true,
 
         },
 
