@@ -7,7 +7,14 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class OrderService {
-  
+    
+    getMyOrders(member: Member, inquiry: OrderInquiry) {
+    
+        throw new Error("Method not implemented.");
+    }
+    updateOrder(member: Member, input: OrderUpdateInput) {
+        throw new Error("Method not implemented.");
+    }
     private readonly orderModel;
     private readonly orderItemModel;
 
@@ -52,13 +59,6 @@ class OrderService {
         });
         const orderItemsState = await Promise.all(promisedList);
         console.log("orderItemsState:", orderItemsState);
-    }
-
-    getMyOrders(member: Member, inquiry: OrderInquiry) {
-        throw new Error("Method not implemented.");
-    }
-    updateOrder(member: Member, input: OrderUpdateInput) {
-        throw new Error("Method not implemented.");
     }
 }
 

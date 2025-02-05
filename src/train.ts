@@ -28,17 +28,24 @@
     backend: validation
     Database validation
     */
+// MIT Task Za
+
+const sortByAge = (arr: {name: string, age: number} []) =>{
+    return arr.sort((a, b) => a.age - b.age);
+}
+    console.log(sortByAge([{name: "Tom", age: 20}, {name: "Jerry", age: 30}, {name: "Spike", age: 25}])); 
+
 
 //MIT Task Z
 
-function sumEvens(nums: number[]): number {
-  return nums.reduce((total: number, value: number) => {
-    return (value & 1) === 0 ? total + value : total;
-  }, 0);
-}
+// function sumEvens(nums: number[]): number {
+//   return nums.reduce((total: number, value: number) => {
+//     return (value & 1) === 0 ? total + value : total;
+//   }, 0);
+// }
 
-console.log(sumEvens([1, 2, 3])); 
-console.log(sumEvens([1, 2, 3, 2])); 
+// console.log(sumEvens([1, 2, 3])); 
+// console.log(sumEvens([1, 2, 3, 2])); 
 
 
     //MIT Task Y
@@ -256,3 +263,7 @@ console.log(sumEvens([1, 2, 3, 2]));
 
     // }
     // console.log(palindromeCheck("dad"))
+
+    // function nodir (str: number[]) {
+    //     const a = str.map((str.))
+    // }
