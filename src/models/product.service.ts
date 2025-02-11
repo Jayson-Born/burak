@@ -51,6 +51,7 @@ class ProductService {
         id: string
     ): Promise<Product> {
         const productId = shapeIntoMongooseObjectId(id);
+       
 
         let result = await this.productModel
             .findOne({

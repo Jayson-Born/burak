@@ -28,12 +28,24 @@
     backend: validation
     Database validation
     */
+
+    // MIT Task ZC
+
+    function celsiusToFahrenheit(celsius: number): number {
+        return(celsius *9/5) + 32;
+    }
+    
+    
+    console.log(celsiusToFahrenheit(0)); 
+    console.log(celsiusToFahrenheit(100)); 
+    console.log(celsiusToFahrenheit(-40)); 
+    
 // MIT Task Za
 
-const sortByAge = (arr: {name: string, age: number} []) =>{
-    return arr.sort((a, b) => a.age - b.age);
-}
-    console.log(sortByAge([{name: "Tom", age: 20}, {name: "Jerry", age: 30}, {name: "Spike", age: 25}])); 
+// const sortByAge = (arr: {name: string, age: number} []) =>{
+//     return arr.sort((a, b) => a.age - b.age);
+// }
+//     console.log(sortByAge([{name: "Tom", age: 20}, {name: "Jerry", age: 30}, {name: "Spike", age: 25}])); 
 
 
 //MIT Task Z

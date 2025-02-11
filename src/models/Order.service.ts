@@ -5,22 +5,23 @@ import { Member } from "../libs/types/member";
 import { ObjectId } from "mongoose";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
+import { MemberStatus, MemberType } from "../libs/enums/member.enums";
+import { OrderStatus } from "../libs/enums/order.enum";
+import MemberService from "./Member.service";
 
 class OrderService {
     
-    getMyOrders(member: Member, inquiry: OrderInquiry) {
-    
-        throw new Error("Method not implemented.");
-    }
-    updateOrder(member: Member, input: OrderUpdateInput) {
-        throw new Error("Method not implemented.");
-    }
+   
+  
     private readonly orderModel;
     private readonly orderItemModel;
+    private readonly memberService;
 
     constructor() {
         this.orderModel = OrderModel;
         this.orderItemModel = OrderItemModel;
+        this.memberService = new MemberService();
+        
     }
 
     public async createOrder(
@@ -39,6 +40,7 @@ class OrderService {
                 orderDelivery: delivery,
                 memberId: memberId,
             }) as unknown as Order
+            await this.recordOrderItem(newOrder._id, input);
             return newOrder;
         } catch (err) {
             console.log("Error, model:createOrder:", err)
@@ -54,12 +56,77 @@ class OrderService {
         const promisedList = input.map(async (item: OrderItemInput) => {
             item.orderId = orderId;
             item.productId = shapeIntoMongooseObjectId(item.productId);
+            console.log(item.productId)
             await this.orderItemModel.create(item);
             return "INSERTED";
         });
         const orderItemsState = await Promise.all(promisedList);
         console.log("orderItemsState:", orderItemsState);
     }
+
+    public async getMyOrders(member: Member, inquiry: OrderInquiry): Promise<Order[]>
+    {
+        const memberId = shapeIntoMongooseObjectId(member._id);
+        const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
+        console.log("matches:", matches);
+        const result = await this.orderModel
+            .aggregate([
+                { $match: matches },
+                { $sort: { updatedAt: -1 } },
+                { $skip: (inquiry.page - 1) * inquiry.limit },
+                { $limit: inquiry.limit },
+                {
+                    $lookup: {
+                        from: "orderItems",
+                        localField: "_id",
+                        foreignField: "orderId",
+                        as: "orderItems",
+                    },
+                },
+                {
+                    $lookup: {
+                        from: "products",
+                        localField: "orderItems.productId",
+                        foreignField: "_id",
+                        as: "productData"
+                    }
+                    
+                }
+
+                
+            ])
+            .exec();
+        console.log("result2:", result);
+        
+        if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        
+        return result;
+    }
+
+    public async updateOrder(
+        member: Member,
+        input: OrderUpdateInput
+      ): Promise<Order> {
+        const memberId = shapeIntoMongooseObjectId(member._id),
+          orderId = shapeIntoMongooseObjectId(input.orderId),
+          orderStatus = input.orderStatus,
+          result = await this.orderModel
+            
+            .findOneAndUpdate(
+              { _id: orderId, memberId: memberId },
+              { orderStatus: orderStatus },
+              { new: true }
+            )
+            .exec();
+    
+        if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    
+       
+        if (orderStatus === OrderStatus.PROCESS) {
+          await this.memberService.addUserPoint(member, 1);
+        }
+        return result as unknown as Order;
+      }
 }
 
 export default OrderService
