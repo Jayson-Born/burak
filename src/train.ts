@@ -29,16 +29,29 @@
     Database validation
     */
 
+    // MIT Task ZD
+    function changeNumberInArray(number1: number, massiv: any[], number2: number) {
+        let result = [];
+        for (let index = 0; index < massiv.length; index++) {
+          if(index == number1){
+            massiv[number1] = number2;
+            result = massiv
+          }
+        }
+    
+        return result;
+    }
+
     // MIT Task ZC
 
-    function celsiusToFahrenheit(celsius: number): number {
-        return(celsius *9/5) + 32;
-    }
+    // function celsiusToFahrenheit(celsius: number): number {
+    //     return(celsius *9/5) + 32;
+    // }
     
     
-    console.log(celsiusToFahrenheit(0)); 
-    console.log(celsiusToFahrenheit(100)); 
-    console.log(celsiusToFahrenheit(-40)); 
+    // console.log(celsiusToFahrenheit(0)); 
+    // console.log(celsiusToFahrenheit(100)); 
+    // console.log(celsiusToFahrenheit(-40)); 
     
 // MIT Task Za
 
