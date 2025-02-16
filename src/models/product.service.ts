@@ -55,7 +55,7 @@ class ProductService {
 
         let result = await this.productModel
             .findOne({
-                _id: productId,
+                _id:productId,
                 productStatus: ProductStatus.PROCESS,
             })
             .exec();

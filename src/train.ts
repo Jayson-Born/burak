@@ -29,18 +29,40 @@
     Database validation
     */
 
-    // MIT Task ZD
-    function changeNumberInArray(number1: number, massiv: any[], number2: number) {
-        let result = [];
-        for (let index = 0; index < massiv.length; index++) {
-          if(index == number1){
-            massiv[number1] = number2;
-            result = massiv
-          }
+
+    //MIT Task ZE
+
+    function removeDuplicate(str: string): string {
+        let seen = new Set<string>();
+        let result = "";
+    
+        for (let char of str) {
+            if (!seen.has(char)) {
+                seen.add(char);
+                result += char;
+            }
         }
     
         return result;
     }
+    
+    console.log(removeDuplicate("stringg")); 
+    console.log(removeDuplicate("hello")); 
+    console.log(removeDuplicate("mississippi")); 
+    
+
+    // MIT Task ZD
+    // function changeNumberInArray(number1: number, massiv: any[], number2: number) {
+    //     let result = [];
+    //     for (let index = 0; index < massiv.length; index++) {
+    //       if(index == number1){
+    //         massiv[number1] = number2;
+    //         result = massiv
+    //       }
+    //     }
+    
+    //     return result;
+    // }
 
     // MIT Task ZC
 
