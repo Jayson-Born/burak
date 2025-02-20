@@ -29,26 +29,39 @@
     Database validation
     */
 
+    //MIT Task ZF
+
+    function capitalizeWords(str: string) {
+        return str
+          .split(' ') 
+          .map((word: string) => 
+            word.length > 2 ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
+          ) 
+          .join(' '); 
+      }
+      
+      console.log(capitalizeWords('name should be a string')); // 'Name Should be a String'
+      
 
     //MIT Task ZE
 
-    function removeDuplicate(str: string): string {
-        let seen = new Set<string>();
-        let result = "";
+    // function removeDuplicate(str: string): string {
+    //     let seen = new Set<string>();
+    //     let result = "";
     
-        for (let char of str) {
-            if (!seen.has(char)) {
-                seen.add(char);
-                result += char;
-            }
-        }
+    //     for (let char of str) {
+    //         if (!seen.has(char)) {
+    //             seen.add(char);
+    //             result += char;
+    //         }
+    //     }
     
-        return result;
-    }
+    //     return result;
+    // }
     
-    console.log(removeDuplicate("stringg")); 
-    console.log(removeDuplicate("hello")); 
-    console.log(removeDuplicate("mississippi")); 
+    // console.log(removeDuplicate("stringg")); 
+    // console.log(removeDuplicate("hello")); 
+    // console.log(removeDuplicate("mississippi")); 
     
 
     // MIT Task ZD
