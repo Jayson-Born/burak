@@ -29,20 +29,28 @@
     Database validation
     */
 
+
+     //MIT Task ZG
+    function toSnakeCase(str: string): string {
+        return str.toLowerCase().replace(/\s+/g, '_');
+    }
+    
+    console.log(toSnakeCase('name should be a string')); 
+    
+
+
     //MIT Task ZF
 
-    function capitalizeWords(str: string) {
-        return str
-          .split(' ') 
-          .map((word: string) => 
-            word.length > 2 ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
-          ) 
-          .join(' '); 
-      }
-
+    // function capitalizeWords(str: string) {
+    //     return str
+    //       .split(' ') 
+    //       .map((word: string) => 
+    //         word.length > 2 ? word[0].toUpperCase() + word.slice(1).toLowerCase() : word
+    //       ) 
+    //       .join(' '); 
+    //   }
       
-      
-      console.log(capitalizeWords('name should be a string')); // 'Name Should be a String'
+    //   console.log(capitalizeWords('name should be a string')); // 'Name Should be a String'
       
 
     //MIT Task ZE
