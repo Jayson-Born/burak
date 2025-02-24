@@ -2,7 +2,7 @@ import { ProductStatus } from "../libs/enums/product.enums";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
-import ProductModel from "../schema/Product.model"
+import ProductModel from "../schema/product.model"
 import { T } from "../libs/types/common";
 import { ObjectId } from "mongoose";
 import ViewService from "./View.service";

@@ -1,4 +1,4 @@
-import OrderItemModel from "../schema/Order.model";
+import OrderItemModel from "../schema/OrderItem.model";
 import { Order, OrderInquiry, OrderItemInput, OrderUpdateInput } from "../libs/types/order";
 import OrderModel from "../schema/Order.model";
 import { Member } from "../libs/types/member";
