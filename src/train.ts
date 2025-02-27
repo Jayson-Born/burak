@@ -30,12 +30,33 @@
     */
 
 
-     //MIT Task ZG
-    function toSnakeCase(str: string): string {
-        return str.toLowerCase().replace(/\s+/g, '_');
+//  MIT Task ZH
+
+function findDisappearedNumbers(arr: number[]) {
+    const max = Math.max(...arr); 
+    const allNumbers = [];
+
+
+    for (let i = 1; i <= max; i++) {
+        allNumbers.push(i);
     }
+
+
+    const missingNumbers = allNumbers.filter(num => !arr.includes(num));
+
+    return missingNumbers;
+}
+
+
+console.log(findDisappearedNumbers([1, 3, 4, 7]))
+
+
+     //MIT Task ZG
+    // function toSnakeCase(str: string): string {
+    //     return str.toLowerCase().replace(/\s+/g, '_');
+    // }
     
-    console.log(toSnakeCase('name should be a string')); 
+    // console.log(toSnakeCase('name should be a string')); 
     
 
 
