@@ -30,25 +30,63 @@
     */
 
 
+    //MIT Task ZJ
+
+    function reduceNestedArray(arr: any[]) {
+        let sum = 0;
+    
+        for (const item of arr) {
+            if (Array.isArray(item)) {
+                sum += reduceNestedArray(item); 
+            } else if (typeof item === 'number') {
+                sum += item; 
+            }
+        }
+    
+        return sum;
+    }
+    
+
+    console.log(reduceNestedArray([1, [1, 2, [4]]])); 
+  
+    
+
+
+    //MIT Task ZI
+
+    function delayHelloWorld() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Hello World");
+            
+            },3000);
+        })
+    };
+    delayHelloWorld() .then(console.log);
+
+
+
+
+
 //  MIT Task ZH
 
-function findDisappearedNumbers(arr: number[]) {
-    const max = Math.max(...arr); 
-    const allNumbers = [];
+// function findDisappearedNumbers(arr: number[]) {
+//     const max = Math.max(...arr); 
+//     const allNumbers = [];
 
 
-    for (let i = 1; i <= max; i++) {
-        allNumbers.push(i);
-    }
+//     for (let i = 1; i <= max; i++) {
+//         allNumbers.push(i);
+//     }
 
 
-    const missingNumbers = allNumbers.filter(num => !arr.includes(num));
+//     const missingNumbers = allNumbers.filter(num => !arr.includes(num));
 
-    return missingNumbers;
-}
+//     return missingNumbers;
+// }
 
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]))
+// console.log(findDisappearedNumbers([1, 3, 4, 7]))
 
 
      //MIT Task ZG
