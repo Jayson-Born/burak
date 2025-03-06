@@ -30,39 +30,57 @@
     */
 
 
-    //MIT Task ZJ
+    //MIT Task ZK
 
-    function reduceNestedArray(arr: any[]) {
-        let sum = 0;
+    function printNumbers() {
+        let number = 1;
+        const interval = setInterval(() => {
+            console.log(number);
+            number++;
     
-        for (const item of arr) {
-            if (Array.isArray(item)) {
-                sum += reduceNestedArray(item); 
-            } else if (typeof item === 'number') {
-                sum += item; 
+            if (number > 5) {
+                clearInterval(interval); 
             }
-        }
-    
-        return sum;
+        }, 1000); 
     }
     
+    printNumbers();
+    
 
-    console.log(reduceNestedArray([1, [1, 2, [4]]])); 
+
+    //MIT Task ZJ
+
+    // function reduceNestedArray(arr: any[]) {
+    //     let sum = 0;
+    
+    //     for (const item of arr) {
+    //         if (Array.isArray(item)) {
+    //             sum += reduceNestedArray(item); 
+    //         } else if (typeof item === 'number') {
+    //             sum += item; 
+    //         }
+    //     }
+    
+    //     return sum;
+    // }
+    
+
+    // console.log(reduceNestedArray([1, [1, 2, [4]]])); 
   
     
 
 
     //MIT Task ZI
 
-    function delayHelloWorld() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve("Hello World");
+    // function delayHelloWorld() {
+    //     return new Promise((resolve) => {
+    //         setTimeout(() => {
+    //             resolve("Hello World");
             
-            },3000);
-        })
-    };
-    delayHelloWorld() .then(console.log);
+    //         },3000);
+    //     })
+    // };
+    // delayHelloWorld() .then(console.log);
 
 
 
