@@ -30,21 +30,34 @@
     */
 
 
+    //MIT TASK ZL
+
+    function stringToKebab(str: string) {
+      
+        return str
+          .toLowerCase()          
+          .replace(/\s+/g, '-')  
+          .replace(/[^\w\-]+/g, '');
+      }
+      
+      console.log(stringToKebab("I love Kebab"));
+      
+
     //MIT Task ZK
 
-    function printNumbers() {
-        let number = 1;
-        const interval = setInterval(() => {
-            console.log(number);
-            number++;
+    // function printNumbers() {
+    //     let number = 1;
+    //     const interval = setInterval(() => {
+    //         console.log(number);
+    //         number++;
     
-            if (number > 5) {
-                clearInterval(interval); 
-            }
-        }, 1000); 
-    }
+    //         if (number > 5) {
+    //             clearInterval(interval); 
+    //         }
+    //     }, 1000); 
+    // }
     
-    printNumbers();
+    // printNumbers();
     
 
 
