@@ -30,17 +30,29 @@
     */
 
 
+    //MIT Task ZM
+    function reverseInteger(num: number): number {
+        const reversed = parseInt(num.toString().split('').reverse().join(''), 10);
+        return reversed;
+    }
+    
+    
+    console.log(reverseInteger(123456789)); 
+    console.log(reverseInteger(-98765));    
+    console.log(reverseInteger(1000));      
+    
+
     //MIT TASK ZL
 
-    function stringToKebab(str: string) {
+    // function stringToKebab(str: string) {
       
-        return str
-          .toLowerCase()          
-          .replace(/\s+/g, '-')  
-          .replace(/[^\w\-]+/g, '');
-      }
+    //     return str
+    //       .toLowerCase()          
+    //       .replace(/\s+/g, '-')  
+    //       .replace(/[^\w\-]+/g, '');
+    //   }
       
-      console.log(stringToKebab("I love Kebab"));
+    //   console.log(stringToKebab("I love Kebab"));
       
 
     //MIT Task ZK
