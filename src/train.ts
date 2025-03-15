@@ -28,18 +28,35 @@
     backend: validation
     Database validation
     */
-
-
-    //MIT Task ZM
-    function reverseInteger(num: number): number {
-        const reversed = parseInt(num.toString().split('').reverse().join(''), 10);
-        return reversed;
+    
+    //MIT Task Zn
+    function rotateArray(arr: number[], index: number): number[] {
+        if (index < 0 || index >= arr.length) {
+            throw new Error("Index out of range");
+        }
+    
+        const part1 = arr.slice(index).reverse(); 
+        const part2 = arr.slice(0, index); 
+    
+        return part1.concat(part2);
     }
     
+    // Test
+    console.log(rotateArray([1, 2, 3, 4, 5, 6], 3)); // [5, 6, 1, 2, 3, 4]
+    console.log(rotateArray([10, 20, 30, 40, 50], 2)); // [40, 50, 10, 20, 30]
+    console.log(rotateArray([7, 8, 9, 10], 1)); // [9, 10, 7, 8]
     
-    console.log(reverseInteger(123456789)); 
-    console.log(reverseInteger(-98765));    
-    console.log(reverseInteger(1000));      
+
+    //MIT Task ZM
+    // function reverseInteger(num: number): number {
+    //     const reversed = parseInt(num.toString().split('').reverse().join(''), 10);
+    //     return reversed;
+    // }
+    
+    
+    // console.log(reverseInteger(123456789)); 
+    // console.log(reverseInteger(-98765));    
+    // console.log(reverseInteger(1000));      
     
 
     //MIT TASK ZL
