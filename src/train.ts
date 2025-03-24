@@ -29,25 +29,52 @@
     Database validation
     */
     
+    //MIT Task ZP
 
-    //MIT Task ZO
-
-    function areParenthesesBalanced(input: string): boolean {
-        let openParenthesesCount = 0;
+    function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+      
+        if (arr1.length !== arr2.length) {
+            return false;
+        }
     
-        for (const char of input) {
-            if (char === '(') {
-                openParenthesesCount++;  
-            } else if (char === ')') {
-                openParenthesesCount--;  
-                if (openParenthesesCount < 0) {
-                    return false;  
-                }
+       
+        arr1.sort();
+        arr2.sort();  
+    
+
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] !== arr2[i]) {
+                return false;  
             }
         }
     
-        return openParenthesesCount === 0; 
+        return true;  
     }
+    
+  
+    console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));  
+    console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));  
+    console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));  
+    
+
+    //MIT Task ZO
+
+    // function areParenthesesBalanced(input: string): boolean {
+    //     let openParenthesesCount = 0;
+    
+    //     for (const char of input) {
+    //         if (char === '(') {
+    //             openParenthesesCount++;  
+    //         } else if (char === ')') {
+    //             openParenthesesCount--;  
+    //             if (openParenthesesCount < 0) {
+    //                 return false;  
+    //             }
+    //         }
+    //     }
+    
+    //     return openParenthesesCount === 0; 
+    // }
     
     // Misol
     
