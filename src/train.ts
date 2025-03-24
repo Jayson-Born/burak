@@ -29,22 +29,44 @@
     Database validation
     */
     
-    //MIT Task Zn
-    function rotateArray(arr: number[], index: number): number[] {
-        if (index < 0 || index >= arr.length) {
-            throw new Error("Index out of range");
+
+    //MIT Task ZO
+
+    function areParenthesesBalanced(input: string): boolean {
+        let openParenthesesCount = 0;
+    
+        for (const char of input) {
+            if (char === '(') {
+                openParenthesesCount++;  
+            } else if (char === ')') {
+                openParenthesesCount--;  
+                if (openParenthesesCount < 0) {
+                    return false;  
+                }
+            }
         }
     
-        const part1 = arr.slice(index).reverse(); 
-        const part2 = arr.slice(0, index); 
-    
-        return part1.concat(part2);
+        return openParenthesesCount === 0; 
     }
     
-    // Test
-    console.log(rotateArray([1, 2, 3, 4, 5, 6], 3)); // [5, 6, 1, 2, 3, 4]
-    console.log(rotateArray([10, 20, 30, 40, 50], 2)); // [40, 50, 10, 20, 30]
-    console.log(rotateArray([7, 8, 9, 10], 1)); // [9, 10, 7, 8]
+    // Misol
+    
+    //MIT Task Zn
+    // function rotateArray(arr: number[], index: number): number[] {
+    //     if (index < 0 || index >= arr.length) {
+    //         throw new Error("Index out of range");
+    //     }
+    
+    //     const part1 = arr.slice(index).reverse(); 
+    //     const part2 = arr.slice(0, index); 
+    
+    //     return part1.concat(part2);
+    // }
+    
+    // // Test
+    // console.log(rotateArray([1, 2, 3, 4, 5, 6], 3)); // [5, 6, 1, 2, 3, 4]
+    // console.log(rotateArray([10, 20, 30, 40, 50], 2)); // [40, 50, 10, 20, 30]
+    // console.log(rotateArray([7, 8, 9, 10], 1)); // [9, 10, 7, 8]
     
 
     //MIT Task ZM
