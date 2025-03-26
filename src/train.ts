@@ -29,32 +29,60 @@
     Database validation
     */
     
-    //MIT Task ZP
+    //MIT Task ZQ
 
-    function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+    function findDuplicates(arr: number[]): number[] {
+        const countMap: Record<number, number> = {};
+        const duplicates: number[] = [];
+    
       
-        if (arr1.length !== arr2.length) {
-            return false;
+        for (const num of arr) {
+            countMap[num] = (countMap[num] || 0) + 1;
         }
     
-       
-        arr1.sort();
-        arr2.sort();  
-    
-
-        for (let i = 0; i < arr1.length; i++) {
-            if (arr1[i] !== arr2[i]) {
-                return false;  
+        
+        for (const key in countMap) {
+            if (countMap[key] === 2) {
+                duplicates.push(Number(key));
             }
         }
     
-        return true;  
+        return duplicates;
     }
     
+
+    console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+    console.log(findDuplicates([1, 1, 2, 2, 3, 3, 4])); 
+    console.log(findDuplicates([5, 5, 5, 6, 6, 6, 7, 7])); 
+    
+
+
+    //MIT Task ZP
+
+    // function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+      
+    //     if (arr1.length !== arr2.length) {
+    //         return false;
+    //     }
+    
+       
+    //     arr1.sort();
+    //     arr2.sort();  
+    
+
+    //     for (let i = 0; i < arr1.length; i++) {
+    //         if (arr1[i] !== arr2[i]) {
+    //             return false;  
+    //         }
+    //     }
+    
+    //     return true;  
+    // }
+    
   
-    console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));  
-    console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));  
-    console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));  
+    // console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));  
+    // console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));  
+    // console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));  
     
 
     //MIT Task ZO
