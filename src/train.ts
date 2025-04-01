@@ -28,32 +28,53 @@
     backend: validation
     Database validation
     */
-    
-    //MIT Task ZQ
 
-    function findDuplicates(arr: number[]): number[] {
-        const countMap: Record<number, number> = {};
-        const duplicates: number[] = [];
+    // MIT Task ZR
+    function countNumbersAndLetters(input: string): { number: number; letter: number } {
+        let numberCount = 0;
+        let letterCount = 0;
     
-      
-        for (const num of arr) {
-            countMap[num] = (countMap[num] || 0) + 1;
-        }
-    
-        
-        for (const key in countMap) {
-            if (countMap[key] === 2) {
-                duplicates.push(Number(key));
+        for (const char of input) {
+            if (/[0-9]/.test(char)) {
+                numberCount++;
+            } else if (/[a-zA-Z]/.test(char)) {
+                letterCount++;
             }
         }
     
-        return duplicates;
+        return { number: numberCount, letter: letterCount };
     }
     
+   
+    console.log(countNumbersAndLetters("string152%¥")); 
+    console.log(countNumbersAndLetters("1234567890")); 
+    console.log(countNumbersAndLetters("hello123"));    
+    
+    //MIT Task ZQ
 
-    console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
-    console.log(findDuplicates([1, 1, 2, 2, 3, 3, 4])); 
-    console.log(findDuplicates([5, 5, 5, 6, 6, 6, 7, 7])); 
+    // function findDuplicates(arr: number[]): number[] {
+    //     const countMap: Record<number, number> = {};
+    //     const duplicates: number[] = [];
+    
+      
+    //     for (const num of arr) {
+    //         countMap[num] = (countMap[num] || 0) + 1;
+    //     }
+    
+        
+    //     for (const key in countMap) {
+    //         if (countMap[key] === 2) {
+    //             duplicates.push(Number(key));
+    //         }
+    //     }
+    
+    //     return duplicates;
+    // }
+    
+
+    // console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+    // console.log(findDuplicates([1, 1, 2, 2, 3, 3, 4])); 
+    // console.log(findDuplicates([5, 5, 5, 6, 6, 6, 7, 7])); 
     
 
 
