@@ -29,26 +29,37 @@
     Database validation
     */
 
-    // MIT Task ZR
-    function countNumbersAndLetters(input: string): { number: number; letter: number } {
-        let numberCount = 0;
-        let letterCount = 0;
-    
-        for (const char of input) {
-            if (/[0-9]/.test(char)) {
-                numberCount++;
-            } else if (/[a-zA-Z]/.test(char)) {
-                letterCount++;
-            }
-        }
-    
-        return { number: numberCount, letter: letterCount };
+
+    //MIT Task ZS
+    function singleNumber(arr: number[]): number {
+        return arr.reduce((a, b) => a ^ b, 0);
     }
     
+    
+    console.log(singleNumber([4, 2, 1, 2, 1])); // 4
+    
+
+    
+    // MIT Task ZR
+    // function countNumbersAndLetters(input: string): { number: number; letter: number } {
+    //     let numberCount = 0;
+    //     let letterCount = 0;
+    
+    //     for (const char of input) {
+    //         if (/[0-9]/.test(char)) {
+    //             numberCount++;
+    //         } else if (/[a-zA-Z]/.test(char)) {
+    //             letterCount++;
+    //         }
+    //     }
+    
+    //     return { number: numberCount, letter: letterCount };
+    // }
+    
    
-    console.log(countNumbersAndLetters("string152%¥")); 
-    console.log(countNumbersAndLetters("1234567890")); 
-    console.log(countNumbersAndLetters("hello123"));    
+    // console.log(countNumbersAndLetters("string152%¥")); 
+    // console.log(countNumbersAndLetters("1234567890")); 
+    // console.log(countNumbersAndLetters("hello123"));    
     
     //MIT Task ZQ
 
